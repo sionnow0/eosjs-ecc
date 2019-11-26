@@ -86,7 +86,8 @@ if __name__ == '__main__':
     # 原始私钥
     private_key = os.urandom(32).hex()
 
-    # wif形式私钥
+    # WIF形式私钥
+    # WIF(Wallet Import Format)格式
     wif_private_key = privateKey2WIF(private_key)
 
     # 公钥
