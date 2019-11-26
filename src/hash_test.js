@@ -50,8 +50,19 @@ sha256原理：https://blog.csdn.net/u011583927/article/details/80905740
  */
 
 
+/*
+私钥生成
+一、用的都是SECP256k1椭圆曲线
+从公钥生成地址的过程稍微有点不一样，具体过程如下：
+1.跟比特币一样，根据原始的私钥生成压缩版的公钥
+2.对第1步的公钥ripemd160运算
+3.对第2步的结果取前面四位作为校验和
+4. 将前缀‘EOS’和 第2步和第3步的结果拼接在一起就得到了地址
+ */
 d = keyPrivate.fromBuffer(c)
 console.log(d)
 
 private_str = d.toString()
 console.log(private_str)
+
+d.d
