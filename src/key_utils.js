@@ -44,8 +44,11 @@ function random32ByteBuffer({cpuEntropyBits = 0, safe = true} = {}) {
     const hash_array = []
     hash_array.push(randomBytes(32))
     hash_array.push(Buffer.from(cpuEntropy(cpuEntropyBits)))
+    // 固定一个随机数
     hash_array.push(externalEntropyArray)
+    // 32B的加入浏览器随机因素的Buff
     hash_array.push(browserEntropy())
+    // sha256每次都返回32B的内容（不管对哪种数据进行加密）
     return hash.sha256(Buffer.concat(hash_array))
 }
 

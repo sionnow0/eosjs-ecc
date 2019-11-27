@@ -61,6 +61,7 @@ ecc.randomKey().then(privateKey => {
 
         @example ecc.seedPrivate('secret') === wif
     */
+    // 返回的就是wif格式
     seedPrivate: seed => PrivateKey.fromSeed(seed).toString(),
 
     /**
