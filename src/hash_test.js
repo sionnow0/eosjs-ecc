@@ -73,6 +73,8 @@ console.log(private_str)
 console.log("secret private: ", ecc.seedPrivate('how much wood could a woodchuck chuck if a woodchuck could chuck wood'))
 console.log("secret public: ", ecc.privateToPublic(ecc.seedPrivate('中国上海')))
 
+
+
 /*
   1 //引入eosjs
   2 var ecc = require('eosjs-ecc')
