@@ -20,31 +20,33 @@ function readFileToArr(fReadName){
         // console.log('line:'+ line);
     });
     objReadline.on('close',function () {
-        // console.log(arr);
-        // if (callback != nil) {
-        //     callback(arr);
-        // }
-        // console.log("arr:", arr)
-        arr.forEach(x => mainAcount.add(x))
-        for (let i of mainAcount) {
-            // console.log("set:", i);
-        }
-        console.log("Load Total Acounts Num:", (mainAcount.size))
 
-        for (i = 0; i < 10; i++) {
+        arr.forEach(x => mainAcount.add(x))
+        // for (let i of mainAcount) {
+        //     // console.log("set:", i);
+        // }
+        console.log("Load Total Acounts Num:", (mainAcount.size))
+        tryNum = 1000000
+        for (i = 0; i < tryNum; i++) {
             keyobj = genOneRandomKey()
-            // console.log(keyobj.pri, keyobj.pub)
             if (mainAcount.has(keyobj.pub)) {
-                console.log("aim at, pub: ", keyobj.pub)
+                console.log("aim at, pub:", keyobj.pub, " pri:", keyobj.pri)
             } else {
-                console.log("not aim at anyone")
+                // console.log("not aim at anyone")
             }
         }
+        console.log("Run End, Total Try Num:", tryNum)
     });
 }
 
+var debug_first = true
 function genOneRandomKey() {
-    str1 = randomWord(true, 1, 500)
+    str1 = randomWord(true, 1, 5000)
+
+    if (debug_first) {
+        str1 = "how"
+        debug_first = false
+    }
     prikey = ecc.seedPrivate(str1)
     pubkey = ecc.privateToPublic(prikey)
     // console.log("gen private: ", prikey)
