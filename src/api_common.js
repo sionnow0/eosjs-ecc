@@ -31,6 +31,23 @@ const ecc = {
       Does not pause to gather CPU entropy.
       @return {Promise<PrivateKey>} test key
     */
+    /*
+    Entropy (computing)：cpu熵
+    // 以下来自wiki
+    The Linux kernel generates entropy from keyboard timings, mouse movements,
+    and IDE timings and makes the random character data available to other
+    operating system processes through the special files /dev/random and /dev/urandom.
+    This capability was introduced in Linux version 1.3.30.[1]
+
+    There are some Linux kernel patches allowing one to use more entropy sources.[2]
+    The audio_entropyd project, which is included in some operating systems such as Fedora,
+    allows audio data to be used as an entropy source.[3] Also available are video_entropyd
+    which calculates random data from a video-source and entropybroker which includes these
+    three and can be used to distribute the entropy data to systems not capable of running
+    any of these (e.g. virtual machines). Furthermore, one can use the HAVEGE algorithm
+    through haveged to pool entropy.[4] In some systems, network interrupts can be used
+    as an entropy source as well.[5]
+   */
     unsafeRandomKey: () => (
       PrivateKey.unsafeRandomKey().then(key => key.toString())
     ),

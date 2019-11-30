@@ -13,6 +13,14 @@ const hash = require('./hash');
 const randomBytes = require('randombytes');
 const ecc = require('./api_common')
 
+
+
+pri = ecc.unsafeRandomKey().then(privateKey => {console.log("pri:", pri)})
+
+
+
+
+console.log("pri:", pri)
 console.log(randomBytes(1))
 const hash_array = []
 hash_array.push(randomBytes(1))
@@ -94,3 +102,4 @@ console.log("secret public: ", ecc.privateToPublic(ecc.seedPrivate('中国上海
  16 console.log(a)
 
  */
+

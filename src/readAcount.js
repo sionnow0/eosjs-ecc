@@ -22,12 +22,12 @@ function readFileToArr(fReadName){
     objReadline.on('close',function () {
 
         arr.forEach(x => mainAcount.add(x))
-        // for (let i of mainAcount) {
-        //     // console.log("set:", i);
-        // }
+
+
         console.log("Load Total Acounts Num:", (mainAcount.size))
         tryNum = 1000000
         for (i = 0; i < tryNum; i++) {
+
             keyobj = genOneRandomKey()
             if (mainAcount.has(keyobj.pub)) {
                 console.log("aim at, pub:", keyobj.pub, " pri:", keyobj.pri)
@@ -59,10 +59,7 @@ function genOneRandomKey() {
 // } )
 
 // 入口
-readFileToArr('E:\\atmp\\sz_download\\eos_snapshot.txt')
-
-
-
+readFileToArr('../resource/eos_snapshot1.txt')
 
 
 
